@@ -1,16 +1,17 @@
-# resty
+# REST Like a Boss
 
-REST like a Boss.
+## Setting up Server
+To set up the REST server:
+* `cd` into the server directory
 
-## Getting Started
+`cd server`
 
-This project is a starting point for a Flutter application.
+* Install
 
-A few resources to get you started if this is your first Flutter project:
+`npm install`
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* Run the server
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+`npm run start-auth`
+
+* User login credentials can be found in `server\users.json`
