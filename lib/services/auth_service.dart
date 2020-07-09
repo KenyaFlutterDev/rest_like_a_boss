@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthService{
   static Future<void> login(Map<String, dynamic> credentials)async{
     Response res = await GetIt.I<RestClient>().dio.post(
+      //TODO: Remember to change the IP to match your PC's
       'http://192.168.100.104:3000/auth/login',
       data: credentials,
     );

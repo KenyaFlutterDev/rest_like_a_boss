@@ -15,3 +15,5 @@ To set up the REST server:
 `npm run start-auth`
 
 * User login credentials can be found in `server\users.json`
+
+**NOTE:** Remember to change the IP addresses in the `services` to match your PC's
