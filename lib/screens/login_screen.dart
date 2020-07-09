@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:resty/screens/home_screen.dart';
+import 'package:resty/services/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -50,13 +53,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text("Login"),
                 color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
-                onPressed: () {
+                onPressed: () async {
                   setState(() => _errorText = null);
                   if (_fbKey.currentState.saveAndValidate()) {
-                    setState(() => _errorText = "Test here");
+                    try {
+                      await AuthService.login(_fbKey.currentState.value);
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomeScreen()));
+                    } catch (e) {
+                      setState(() => _errorText = e is DioError ? e.error : e.toString());
+                    }
                   }
                 },
-              )
+              ),
             ],
           ),
         ),
